@@ -4,3 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+cvrf-xmlparser = { git = "https://git.culinux.net/jiachao2130/cvrf-xmlparser.git", version = "0.1.0" }
+serde = { version = "1", features = ["serde_derive"] }
+tracing = { version = "0.1" }
+xml-rs = { version = "0.8" }
