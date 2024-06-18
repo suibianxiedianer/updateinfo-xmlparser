@@ -12,6 +12,7 @@ fn it_works() {
     let severity = cvrf_xmlparser::Severity::Important;
     let release = "openEuler";
     let cves = 10;
+    let sa = "openEuler-SA-2022-1587";
 
     let updateinfo = &db.db[0];
     assert_eq!(updateinfo.id, id);
@@ -19,6 +20,7 @@ fn it_works() {
     assert_eq!(updateinfo.severity, severity);
     assert_eq!(updateinfo.release, release);
     assert_eq!(updateinfo.cves.len(), cves);
+    assert_eq!(updateinfo.pkglist[0].sa(), sa);
 
     assert!(true);
 }

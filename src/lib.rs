@@ -163,6 +163,7 @@ impl UpdateInfo {
                     }
 
                     rpminfo.set("file", xmlreader.next_characters());
+                    rpminfo.set("sa", self.id.clone());
                     self.pkglist.push(rpminfo);
                 }
                 Err(e) => {
@@ -189,6 +190,8 @@ pub struct RpmInfo {
     arch: String,
 
     file: String,
+
+    sa: String,
 }
 
 impl RpmInfo {
@@ -200,6 +203,7 @@ impl RpmInfo {
             release: String::new(),
             arch: String::new(),
             file: String::new(),
+            sa: String::new(),
         }
     }
 
@@ -212,6 +216,7 @@ impl RpmInfo {
             "release" => self.release = value,
             "arch" => self.arch = value,
             "file" => self.file = value,
+            "sa" => self.sa = value,
             _ => error!("Unknow field: {key}"),
         }
     }
@@ -242,6 +247,10 @@ impl RpmInfo {
 
     pub fn file(&self) -> &str {
         &self.file
+    }
+
+    pub fn sa(&self) -> &str {
+        &self.sa
     }
 
     pub fn evr(&self) -> String {
