@@ -11,7 +11,7 @@ mod test;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct UpdateInfoDb {
-    db: Vec<UpdateInfo>,
+    pub db: Vec<UpdateInfo>,
 }
 
 impl UpdateInfoDb {
@@ -46,28 +46,28 @@ impl UpdateInfoDb {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct UpdateInfo {
     // sa id
-    id: String,
+    pub id: String,
 
     // sa title
-    title: String,
+    pub title: String,
 
     // sa severity
-    severity: Severity,
+    pub severity: Severity,
 
     // the product? openEuler/CULinux
-    release: String,
+    pub release: String,
 
     // 用处不大，先不用
     //date: String,
 
     // cve ids，可能有多个
-    cves: Vec<String>,
+    pub cves: Vec<String>,
 
     // 安全公告的描述
-    description: String,
+    pub description: String,
 
     // 此次更新包含的软件包列表
-    pkglist: Vec<RpmInfo>,
+    pub pkglist: Vec<RpmInfo>,
 }
 
 impl UpdateInfo {
